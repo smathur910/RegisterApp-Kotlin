@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 
 class NavFragment : Fragment() {
@@ -19,13 +20,10 @@ class NavFragment : Fragment() {
 
          val nav = inflater.inflate(R.layout.fragment_nav, container, false)
 
-        val aBtn = nav.findViewById<Button>(R.id.addBtn)
+        val aBtn = nav.findViewById<FloatingActionButton>(R.id.addBtn)
         aBtn.setOnClickListener{
             val secondFragment  = AddFragment();
-            val transaction: FragmentTransaction = parentFragmentManager!!.beginTransaction()
-            transaction.replace(R.id.mainLayout,secondFragment)
-            transaction.commit();
-
+            parentFragmentManager.beginTransaction().replace(R.id.mainLayout,secondFragment).commit();
         }
 
 

@@ -89,6 +89,18 @@ class AddFragment : Fragment() {
             }
         }
 
+//        fun validateDate(): Boolean {
+//            val dobD = dobDetail.text.toString().trim { it <= ' ' }
+//            return if (dobD.isEmpty())  {
+//                dobDetail.error = "Please Choose DOB"
+//                false
+//            } else {
+//                dobDetail.error = null
+//                true
+//            }
+//        }
+
+
 
         val c = Calendar.getInstance()
         val year = c.get(Calendar.YEAR)
