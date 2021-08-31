@@ -128,11 +128,22 @@ class AddFragment : Fragment() {
             TimePickerDialog(requireContext(), timeSetListener, c.get(Calendar.HOUR_OF_DAY), c.get(Calendar.MINUTE), false).show()
         }
 
-
         btn.setOnClickListener{
             if(!validUser() or !validEmail() or !validateGender() or !validateCheck()){
                 return@setOnClickListener
             }
+
+            val bundle = Bundle()
+
+
+            bundle.putString("Name", uName.toString())
+            bundle.putString("Email", uEmail.toString())
+            bundle.putString("Gender", uGender.toString())
+
+            val thirdFragment  = DisplayFragment();
+            thirdFragment.setArguments(bundle);
+
+            parentFragmentManager.beginTransaction().replace(R.id.mainLayout,thirdFragment).commit();
         }
 
 
